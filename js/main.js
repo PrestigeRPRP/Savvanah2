@@ -545,31 +545,15 @@
 
 
 
-// Get the audio element
-const audio = document.getElementById('click-sound');
 
-// Set the volume to 0.5 (50%)
-audio.volume = 0.2;
 
-// Function to play the audio
-function playAudio() {
-    audio.currentTime = 0; // Reset audio to start
-    audio.play().catch(error => {
-        console.error("Audio playback failed:", error);
-    });
-}
+    function playAudio() {
+            const audio = document.getElementById('myAudio');
+            audio.volume = 0.5; // Set volume to 0.5 (50%)
+            audio.play();
+        }
 
-// Get the buttons
-const prevButton = document.getElementById('prev-slide');
-const nextButton = document.getElementById('next-slide');
-
-// Add event listeners to the buttons
-prevButton.addEventListener('click', function() {
-    playAudio();
-    // Add your logic for previous slide here
-});
-
-nextButton.addEventListener('click', function() {
-    playAudio();
-    // Add your logic for next slide here
-});
+        // Play audio once when the page loads
+        window.onload = function() {
+            playAudio();
+        };
