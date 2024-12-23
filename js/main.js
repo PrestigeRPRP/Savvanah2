@@ -546,14 +546,27 @@
 
 
 
+const audio = document.getElementById('myAudio');
+        const nextSlideButton = document.getElementById('next-slide');
+        let audioPlayed = false;
 
-    function playAudio() {
-            const audio = document.getElementById('myAudio');
-            audio.volume = 0.5; // Set volume to 0.5 (50%)
-            audio.play();
-        }
+	 // Set the volume to 0.02
+	 audio.volume = 0.03;
 
-        // Play audio once when the page loads
-        window.onload = function() {
-            playAudio();
-        };
+        nextSlideButton.addEventListener('click', () => {
+            if (!audioPlayed) {
+                audio.play();
+                audioPlayed = true; // Set to true to prevent replaying
+            }
+            // Logic to show the next slide goes here
+            console.log('Next slide clicked');
+        });
+
+        // Optional: Reset audioPlayed if you want to allow replaying after a certain condition
+        // For example, if you have a "Previous" button that allows going back to the first slide:
+        document.getElementById('prev-slide').addEventListener('click', () => {
+            // Logic to show the previous slide goes here
+            console.log('Previous slide clicked');
+            // If you want to reset the audioPlayed flag when going back to the first slide:
+            // audioPlayed = false; 
+        });
